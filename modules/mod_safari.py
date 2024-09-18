@@ -154,7 +154,7 @@ def pull_extensions(extensions, user, extensions_output, extensions_headers):
 def pull_visit_history(recently_closed_plist, history_db, user, history_output, history_headers):
 
     try:
-        log.debug("Trying to access RecentlyClosedTabs.plist...")
+        log.debug("Trying to access RecentlyClosedTabs.plist...") # /Users/USER/Library/Safari/RecentlyClosedTabs.plist
         recently_closed = read_bplist(recently_closed_plist)[0]['ClosedTabOrWindowPersistentStates']
         d = {}
         log.debug("Success. Found {0} lines of data.".format(len(recently_closed)))
@@ -164,8 +164,8 @@ def pull_visit_history(recently_closed_plist, history_db, user, history_output, 
                     tab_title = i['PersistentState']['TabTitle'].encode('utf-8')
                     date_closed = parser.parse(str(i['PersistentState']['DateClosed'])).replace(tzinfo=None).isoformat() + 'Z'
                     try:
-                        last_visit_time = i['PersistentState']['LastVisitTime']
-                        last_visit_time = cocoa_time(last_visit_time)
+                        last_visit_time = i['PersistentState']['LastVisitTime'] # these two values are found in RecentlyClosedTabs.plist
+                        print("Opening last_visit_time", last_visit_time)
                     except KeyError:
                         last_visit_time = ''
                     d[i['PersistentState']['TabURL']] = [tab_title, date_closed, last_visit_time]
@@ -264,7 +264,7 @@ def module(safari_location):
 
         history_db = connect_to_db(os.path.join(c, 'History.db'), 'history_visits')
         recently_closed_plist = os.path.join(c, 'RecentlyClosedTabs.plist')
-        if history_db:
+        if history_db: # this will only retrieve the recently closed tabs if the history database is found
             pull_visit_history(recently_closed_plist, history_db, user, history_output, history_headers)
 
         downloads_plist = os.path.join(c, 'Downloads.plist')
