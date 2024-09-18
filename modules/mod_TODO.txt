@@ -1,0 +1,9 @@
+- DONE - Profiles found: current profiles in the system that are not default. accounts, deleted profiles
+- Launch agents: daemons + agents
+- iCloud data: find available iCloud data in the system
+- Terminal: terminal history
+- Mounted devices: current mounted devices in the system
+- Trash: recently trashed items
+- fsevents
+- Software install list
+- Mail data: mail accounts
