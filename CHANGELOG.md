@@ -1,6 +1,13 @@
 # AutoMacTC Changelog
 All significant changes to this project will be documented in this file.
 
+## [1.3.0] - 2024-09-23
+### Added
+- Profiles module to list the current user profiles in the machine
+- LaunchAgents and LaunchDaemons module to detect possible persistence in the system via those. Added for user paths and system paths
+### Changed
+- Removed the time conversion to cocoa for Safari since it was giving trouble in the newest platforms and didn't produce output
+
 ## [1.2.0] - 2021-06-30
 
 ### Added

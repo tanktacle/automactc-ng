@@ -1,6 +1,7 @@
 """A module intended to read and parse the Safari history database and
 Downloads.plist for each user on disk.
 """
+# TODO: test in older versions on the system, since probably the removal of cocoa time wrapper will affect them
 
 import logging
 import os
