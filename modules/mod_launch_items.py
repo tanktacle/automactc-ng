@@ -21,7 +21,7 @@ from .common.dateutil import parser
 from .common.functions import cocoa_time, multiglob, read_bplist, stats2, get_db_column_headers
 
 _modName = __name__.split('_')[-1]
-_modVers = '1.0.5'
+_modVers = '1.0.0'
 log = logging.getLogger(_modName)
 
 INVALID_EXTENSIONS = {'.app', '.framework', '.lproj', '.plugin', '.kext', '.osax', '.bundle', '.driver', '.wdgt', '.Office', '.blacklight'}
@@ -35,11 +35,11 @@ output = None
 # INFO: I removed the system ones because they have a huge output, tweak it in all_agents if you want it
 launch_agents = '/Library/LaunchAgents/' # Per-user agents provided by the administrator.
 launch_daemons = '/Library/LaunchDaemons/' # System wide daemons provided by the administrator.
-u_launch_agents = '~/Library/LaunchAgents' # Per-user agents provided by the user.
+u_launch_agents = '~/Library/LaunchAgents/' # Per-user agents provided by the user.
 s_launch_agents = '/System/Library/LaunchAgents/' # OS X Per-user agents.
 s_launch_daemons = '/System/Library/LaunchDaemons/' # OS X System wide daemons.
 
-all_agents = [launch_agents, launch_daemons, u_launch_agents]
+all_agents = [launch_agents, launch_daemons, os.path.expanduser(u_launch_agents)]
 
 file_opts = {}
 

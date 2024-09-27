@@ -10,6 +10,7 @@ on the metadata collected.
 """
 
 # TODO: troubleshoot this, not properly working and errors out
+# TODO: find iCloud sparse files & hidden .icloud files for 10.13
 
 from __future__ import print_function
 
@@ -22,7 +23,6 @@ try:
 	from xattr import getxattr, listxattr
 except Exception:
 	from .common.dep.xattr import getxattr, listxattr
-
 
 # IMPORT STATIC VARIABLES FROM MAIN
 import errno
@@ -46,7 +46,7 @@ if sys.version_info[0] < 3:
 	import Foundation
 
 _modName = __name__.split('_')[-1]
-_modVers = '2.0.0'
+_modVers = '2.0.1'
 log = logging.getLogger(_modName)
 
 INVALID_EXTENSIONS = {'.app', '.framework', '.lproj', '.plugin', '.kext', '.osax', '.bundle', '.driver', '.wdgt', '.Office', '.blacklight'}

@@ -16,7 +16,7 @@ from __main__ import (data_writer, inputdir)
 from .common.functions import cocoa_time, multiglob, read_bplist, stats2, get_db_column_headers, finditem
 
 _modName = __name__.split('_')[-1]
-_modVers = '1.0.5'
+_modVers = '1.0.0'
 log = logging.getLogger(_modName)
 
 def module():
